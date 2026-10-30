@@ -235,6 +235,23 @@
     show(0);
   });
 
+  // ---- Dark / light mode switch (initial theme is set inline in <head>) ----
+  var themeBtn = document.querySelector('.theme-toggle');
+  if (themeBtn) {
+    var root = document.documentElement;
+    var label = function () {
+      var dark = root.dataset.theme === 'dark';
+      themeBtn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+      themeBtn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    };
+    themeBtn.addEventListener('click', function () {
+      root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem('theme', root.dataset.theme); } catch (e) { /* private mode: not remembered */ }
+      label();
+    });
+    label();
+  }
+
   // ---- Footer year ----
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();

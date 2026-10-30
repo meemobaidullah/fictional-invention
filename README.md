@@ -31,7 +31,8 @@ Values highlighted in orange on the page (class `ph`) and `PLACEHOLDER` / `TODO`
 - **Case study slider**: four remaining `XX%` metrics, client quotes in the clients' own words, names and "Read The Success Story" links.
 - **Service page stats**: the three numbers in the stats panel on the launch, brand management and Storefront pages.
 - **Portfolio tiles**: before/after images on the brand management page and Storefront screenshots on the Storefront page.
-- **Founder photo**: replace the "MO" initials on `about.html` with a real photo.
+- **Founder photo**: `assets/img/team/meem-obaidullah*.jpg` (cropped from the supplied poster). Swap for a plain studio shot any time.
+- **Dark mode**: colours live in tokens at the top of `styles.css`; the dark values are in the `[data-theme="dark"]` block at the end. The header switch remembers each visitor's choice.
 - **Forms**: every form is a 3-step checklist that posts to `https://formsubmit.co/ajax/ecommeem@gmail.com` (set in `assets/js/main.js`). The first submission from the live domain sends an activation email to ecommeem@gmail.com; click it once and messages start arriving.
 - **Analytics**: no tracking is installed. Add your own GA4/GTM ID if needed.
 - **Social profiles**: add URLs to `sameAs` in the Organization JSON-LD.

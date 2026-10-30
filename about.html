@@ -30,6 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script data-theme-init>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t}catch(e){}</script>
   <link rel="stylesheet" href="assets/css/styles.css">
 
   <script type="application/ld+json">
@@ -44,6 +45,7 @@
           "@type": "Person",
           "name": "Meem Obaidullah",
           "jobTitle": "Founder & CEO",
+        "image": "https://www.ecommeem.com/assets/img/team/meem-obaidullah.jpg",
           "worksFor": {
             "@type": "Organization",
             "name": "eCommeem",
@@ -121,7 +123,8 @@
   <header class="site-header" id="top">
     <div class="container header-inner">
       <a class="logo" href="index.html" aria-label="eCommeem.com home">
-        <img src="assets/img/logo/ecommeem-logo.svg" alt="eCommeem.com" width="615" height="112">
+        <img class="logo-on-light" src="assets/img/logo/ecommeem-logo.svg" alt="eCommeem.com" width="615" height="112">
+        <img class="logo-on-dark" src="assets/img/logo/ecommeem-logo-white.svg" alt="" width="615" height="112">
       </a>
 
       <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
@@ -193,6 +196,10 @@
         </ul>
         <a class="btn btn-outline nav-cta" href="index.html#contact">Contact Us</a>
       </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Dark / light mode">
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+      </button>
     </div>
   </header>
   <!-- header:end -->
@@ -220,10 +227,9 @@
             </ul>
           </div>
         </div>
-        <!-- PLACEHOLDER: replace the initials with Meem's photo (assets/img/team/meem-obaidullah.jpg, square, 800px+) -->
-        <div class="hero-art founder-art" aria-hidden="true">
-          <div class="art-blob"></div>
-          <div class="founder-photo"><span>MO</span></div>
+        <div class="hero-art founder-art">
+          <div class="art-blob" aria-hidden="true"></div>
+          <div class="founder-photo"><img src="assets/img/team/meem-obaidullah.jpg" alt="Meem Obaidullah, founder of eCommeem" width="800" height="800" fetchpriority="high"></div>
           <div class="art-pill"><strong>Since 2019</strong><span>building marketplace brands</span></div>
         </div>
       </div>
@@ -233,7 +239,7 @@
     <section class="section" id="founder">
       <div class="container founder">
         <div class="founder-card">
-          <div class="founder-avatar" aria-hidden="true">MO</div>
+          <img class="founder-avatar" src="assets/img/team/meem-obaidullah-400.jpg" alt="" width="400" height="400" loading="lazy">
           <h2>Meem Obaidullah</h2>
           <p class="founder-role">Founder &amp; CEO, eCommeem</p>
           <ul class="chip-row">
