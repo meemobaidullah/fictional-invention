@@ -592,3 +592,13 @@ body.menu-open { overflow: hidden; }
 @media (max-width: 899px) {
   .float-mail { top: auto; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); }
 }
+
+/* Platforms row in heroes (stands in for partner badges) */
+.platforms p { font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.platforms ul { display: flex; flex-wrap: wrap; gap: 10px; }
+.platforms li {
+  display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 12px;
+  background: var(--white); border: 1px solid #e6e6e6; font-weight: 700; color: var(--ink); font-size: .95rem;
+}
+.platforms li::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--orange); }
+.platforms li:nth-child(n+3)::before { background: var(--blue); }
