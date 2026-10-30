@@ -13,7 +13,23 @@
     toggle.setAttribute('aria-expanded', String(open));
     toggle.querySelector('.sr-only').textContent = open ? 'Close menu' : 'Open menu';
     nav.classList.toggle('is-open', open);
+    document.body.classList.toggle('menu-open', open);
   }
+
+  // Submenus: accordion on mobile, click/keyboard fallback for hover on desktop.
+  var menuBtns = document.querySelectorAll('.menu-btn');
+  menuBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') !== 'true';
+      menuBtns.forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.menu-item')) {
+      menuBtns.forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
+    }
+  });
 
   if (toggle && nav) {
     toggle.addEventListener('click', function () {
