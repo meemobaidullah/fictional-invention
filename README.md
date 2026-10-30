@@ -30,6 +30,7 @@ Values highlighted in orange on the page (class `ph`) and `PLACEHOLDER` / `TODO`
 - **Client logos**: the 10 logo tiles under the hero (only with client permission).
 - **Case study slider**: four `XX%` metrics, client quotes, names and "Read The Success Story" links.
 - **Why eCommeem / stats**: "XX+ Stores Managed", the three numbers in the black stats panel, and "XX+ Years" in the hero art.
+- **Portfolio tiles**: before/after images on the brand management page and Storefront screenshots on the Storefront page.
 - **Audit turnaround**: "within X business days" in the audit section.
 - **Audit form**: point the form at a backend (Formspree, HubSpot, etc.) and replace the demo submit in `main.js`.
 - **Analytics**: no tracking is installed. Add your own GA4/GTM ID if needed.
@@ -40,6 +41,8 @@ Values highlighted in orange on the page (class `ph`) and `PLACEHOLDER` / `TODO`
 
 - `index.html`: homepage
 - `help-me-launch.html`: Amazon launch service page
+- `amazon-brand-management-services.html`: brand management service page
+- `amazon-brand-storefront-design.html`: Storefront design service page
 - `partials/header.html`, `partials/footer.html`: the shared menu and footer. Edit them there, then run `python3 tools/build_partials.py` to copy them into every page.
 
 ## Logo files
