@@ -1,5 +1,5 @@
 // Ecommeem homepage interactions: mobile nav, case-study slider,
-// workflow tabs, FAQ accordion + load more, audit form.
+// workflow tabs, FAQ accordion + load more, stepped audit forms.
 (function () {
   'use strict';
 
@@ -146,34 +146,94 @@
     }
   }
 
-  // ---- Audit form (client-side validation; wire to a backend before launch) ----
-  var form = document.querySelector('.audit-form');
-  if (form) {
+  // ---- Stepped audit forms: checklist -> store -> contact, sent to ecommeem@gmail.com via FormSubmit ----
+  var FORM_ENDPOINT = 'https://formsubmit.co/ajax/ecommeem@gmail.com';
+  document.querySelectorAll('.step-form').forEach(function (form) {
+    var steps = form.querySelectorAll('[data-fstep]');
+    var dots = form.querySelectorAll('.step-dots li');
+    var num = form.querySelector('[data-step-num]');
+    var back = form.querySelector('[data-back]');
+    var next = form.querySelector('[data-next]');
+    var submit = form.querySelector('[data-submit]');
     var note = form.querySelector('.form-note');
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var invalid = null;
-      ['f-name', 'f-email', 'f-store'].forEach(function (id) {
-        var input = document.getElementById(id);
+    var current = 0;
+
+    function show(i) {
+      current = i;
+      steps.forEach(function (s, k) { s.hidden = k !== i; });
+      dots.forEach(function (d, k) { d.classList.toggle('on', k <= i); });
+      num.textContent = i + 1;
+      back.hidden = i === 0;
+      next.hidden = i === steps.length - 1;
+      submit.hidden = i !== steps.length - 1;
+    }
+
+    function setNote(text, type) {
+      note.textContent = text;
+      note.classList.remove('is-error', 'is-success');
+      if (type) note.classList.add(type);
+    }
+
+    // Returns true when the visible step is complete; marks what's missing.
+    function valid(i) {
+      var step = steps[i];
+      var grid = step.querySelector('.check-grid');
+      if (grid) {
+        var ticked = grid.querySelector('input:checked');
+        grid.classList.toggle('is-invalid', !ticked);
+        if (!ticked) { setNote('Tick at least one option to continue.', 'is-error'); return false; }
+      }
+      var bad = null;
+      step.querySelectorAll('input:not([type=checkbox])').forEach(function (input) {
         var ok = input.checkValidity() && (!input.required || input.value.trim() !== '');
         input.setAttribute('aria-invalid', ok ? 'false' : 'true');
-        if (!ok && !invalid) invalid = input;
+        if (!ok && !bad) bad = input;
       });
+      if (bad) { setNote('Please check the highlighted field.', 'is-error'); bad.focus(); return false; }
+      setNote('');
+      return true;
+    }
 
-      note.classList.remove('is-error', 'is-success');
-      if (invalid) {
-        note.textContent = 'Please check the highlighted field.';
-        note.classList.add('is-error');
-        invalid.focus();
-        return;
-      }
-
-      // TODO: replace with fetch() to your form endpoint.
-      note.textContent = "Thanks! We'll be in touch with your audit shortly.";
-      note.classList.add('is-success');
-      form.reset();
+    next.addEventListener('click', function () { if (valid(current)) show(current + 1); });
+    back.addEventListener('click', function () { setNote(''); show(current - 1); });
+    form.addEventListener('change', function (e) {
+      if (e.target.type === 'checkbox') e.target.closest('.check-grid').classList.remove('is-invalid');
     });
-  }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!valid(current)) return;
+      if (form.elements._honey.value) return; // bot
+
+      var data = {
+        _subject: form.dataset.subject,
+        _template: 'table',
+        page: location.href,
+        services: Array.prototype.map.call(form.querySelectorAll('input[name=services]:checked'), function (c) { return c.value; }).join(', ')
+      };
+      ['marketplace', 'store', 'name', 'email', 'whatsapp'].forEach(function (k) {
+        if (form.elements[k]) data[k] = form.elements[k].value.trim();
+      });
+      data._replyto = data.email;
+
+      submit.disabled = true;
+      setNote('Sending…');
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (res) {
+        if (!res.ok) throw new Error(res.status);
+        setNote("Thanks! We've got your request and will reply by email soon.", 'is-success');
+        form.reset();
+        show(0);
+      }).catch(function () {
+        setNote('Sorry, that did not send. Please email ecommeem@gmail.com or WhatsApp +880 1731-558195.', 'is-error');
+      }).then(function () { submit.disabled = false; });
+    });
+
+    show(0);
+  });
 
   // ---- Footer year ----
   var year = document.getElementById('year');
