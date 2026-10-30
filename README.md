@@ -23,7 +23,7 @@ assets/img/           Favicon and images
 Values highlighted in orange on the page (class `ph`) and `PLACEHOLDER` / `TODO` comments in the code still need real data:
 
 - **Domain**: canonical, Open Graph and JSON-LD URLs assume `https://www.ecommeem.com/`.
-- **Email**: `hello@ecommeem.com` in the footer and JSON-LD.
+- **Contact**: ecommeem@gmail.com, +880 1731-558195 and +880 1309-012476 live in `partials/header.html`, `partials/footer.html` and the Organization JSON-LD.
 - **Social image & icons**: add `assets/img/og-image.png` (1200×630), `assets/img/logo.svg`, `assets/img/apple-touch-icon.png` (180×180) and a root `favicon.ico`.
 - **Twitter/X handle**: `twitter:site` assumes `@ecommeem`.
 - **Partner badges & accreditations**: hero badge row and the Recognitions section. Show only programs eCommeem actually holds.
