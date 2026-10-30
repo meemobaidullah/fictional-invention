@@ -24,7 +24,8 @@ Values highlighted in orange on the page (class `ph`) and `PLACEHOLDER` / `TODO`
 
 - **Domain**: canonical, Open Graph and JSON-LD URLs assume `https://www.ecommeem.com/`.
 - **Email**: `hello@ecommeem.com` in the footer and JSON-LD.
-- **Social image**: add `assets/img/og-image.png` (1200×630) and `assets/img/logo.svg`.
+- **Social image & icons**: add `assets/img/og-image.png` (1200×630), `assets/img/logo.svg`, `assets/img/apple-touch-icon.png` (180×180) and a root `favicon.ico`.
+- **Twitter/X handle**: `twitter:site` assumes `@ecommeem`.
 - **Case studies**: the three `XX%` metrics and their "Read the case study" links.
 - **Stats band**: brands managed, revenue lift, categories, marketplaces.
 - **Testimonial**: a real, client-approved quote and name.
