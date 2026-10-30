@@ -26,9 +26,10 @@ Values highlighted in orange on the page (class `ph`) and `PLACEHOLDER` / `TODO`
 - **Email**: `hello@ecommeem.com` in the footer and JSON-LD.
 - **Social image & icons**: add `assets/img/og-image.png` (1200×630), `assets/img/logo.svg`, `assets/img/apple-touch-icon.png` (180×180) and a root `favicon.ico`.
 - **Twitter/X handle**: `twitter:site` assumes `@ecommeem`.
-- **Case studies**: the three `XX%` metrics and their "Read the case study" links.
-- **Stats band**: brands managed, revenue lift, categories, marketplaces.
-- **Testimonial**: a real, client-approved quote and name.
+- **Partner badges & accreditations**: hero badge row and the Recognitions section. Show only programs Ecommeem actually holds.
+- **Client logos**: the 10 logo tiles under the hero (only with client permission).
+- **Case study slider**: four `XX%` metrics, client quotes, names and "Read The Success Story" links.
+- **Why Ecommeem / stats**: "XX+ Stores Managed", the three numbers in the black stats panel, and "XX+ Years" in the hero art.
 - **Audit turnaround**: "within X business days" in the audit section.
 - **Audit form**: point the form at a backend (Formspree, HubSpot, etc.) and replace the demo submit in `main.js`.
 - **Analytics**: no tracking is installed. Add your own GA4/GTM ID if needed.
