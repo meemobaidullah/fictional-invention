@@ -638,7 +638,7 @@ body.menu-open { overflow: hidden; }
 .section-lead { color: var(--muted); max-width: 46em; margin: -12px 0 32px; font-size: 1.05rem; }
 .mk-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
 .mk-grid li { display: grid; grid-template-columns: auto 1fr; column-gap: 12px; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
-.mk-flag { grid-row: span 2; font-size: 1.9rem; line-height: 1; }
+.mk-flag { grid-row: span 2; width: 40px; height: 30px; border-radius: 4px; object-fit: cover; box-shadow: 0 0 0 1px rgba(0,0,0,.12); align-self: center; }
 .mk-name { font-weight: 700; color: var(--ink); font-size: .95rem; }
 .mk-url { color: var(--muted); font-size: .85rem; }
 .mk-more { margin-top: 32px; }
