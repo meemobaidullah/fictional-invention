@@ -588,10 +588,9 @@ body.menu-open { overflow: hidden; }
 /* Portfolio placeholders */
 .work-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
 .work-grid li { display: grid; gap: 10px; }
-.work-grid span {
-  aspect-ratio: 4 / 3; display: grid; place-items: center; border-radius: var(--radius); border: 1.5px dashed #bfbfbf;
-  background: var(--surface); color: #8a8a8a; font-size: .9rem; font-weight: 600;
-}
+.work-grid li { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; border-top: 4px solid var(--orange); }
+.work-grid span { order: 2; color: var(--muted); font-size: .95rem; }
+.work-grid b { order: 1; font-size: 1.1rem; }
 .work-grid b { color: var(--ink); font-weight: 600; }
 .store-art { aspect-ratio: 1 / 1.02; }
 @media (min-width: 640px) { .store-art { aspect-ratio: 1 / .82; } }
