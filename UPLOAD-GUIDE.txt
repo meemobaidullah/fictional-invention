@@ -1,0 +1,37 @@
+eCommeem.com - Hostinger upload guide
+=====================================
+
+1) BACKUP FIRST
+   hPanel > Websites > ecommeem.com > Backups > download Files + Database backup.
+
+2) UPLOAD
+   hPanel > Files > File Manager > open public_html
+   - Move ALL old site files (old .html pages, assets, assets.6165, sitemaps) into a folder
+     named old-site (do not delete yet). Every old page URL is rebuilt in the new zip.
+   - Upload ecommeem-site.zip into public_html, right-click > Extract.
+   - Make sure index.html sits directly inside public_html (not public_html/ecommeem-site/).
+   - Show hidden files and check that .htaccess is there.
+
+3) TURN ON EMAIL FORMS (one time only)
+   Open https://ecommeem.com/contact.html and send one test message.
+   FormSubmit sends an "Activate form" email to ecommeem@gmail.com. Click Activate.
+   After that every form, pricing order and chat lead arrives in that inbox
+   (check Spam/Promotions the first time and mark "Not spam").
+
+4) GOOGLE TAG (Analytics)
+   analytics.google.com > Admin > Data streams > Web > copy the ID "G-XXXXXXX".
+   File Manager > public_html/assets/js/analytics.js > Edit
+   replace G-XXXXXXXXXX with your ID > Save.
+   In GA4 > Admin > Events, mark generate_lead and whatsapp_click as Key events.
+
+5) GOOGLE SEARCH CONSOLE
+   search.google.com/search-console > Add property > Domain: ecommeem.com
+   Verify with the DNS TXT record (hPanel > Domains > DNS / Nameservers > add TXT).
+   Then Sitemaps > submit: https://ecommeem.com/sitemap.xml
+
+6) TEST
+   - Open the site on phone and desktop, try dark/light mode.
+   - Send a pricing order and a contact form: both must reach ecommeem@gmail.com.
+   - Tap WhatsApp buttons: they open chat with +880 1731-558195.
+   - Visit https://ecommeem.com/abc : the custom 404 page should show.
+   - Visit https://ecommeem.com/pricing.html : it should jump to /pricing (clean URL).

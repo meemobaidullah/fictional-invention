@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /partials/
+Disallow: /tools/
+Disallow: /meeting-request.php
+
+Sitemap: https://ecommeem.com/sitemap.xml
