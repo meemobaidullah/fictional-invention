@@ -8,7 +8,7 @@
 :root {
   --orange: #0E927A;
   --orange-dark: #0A7563;
-  --blue: #42A3CB;
+  --blue: #1F7AA3;
   --cyan: #00d4ff;
   --ink: #000201;
   --text: #202020;
@@ -95,7 +95,7 @@ button { font: inherit; }
 .btn-orange { background: var(--orange); color: var(--on-accent); }
 .btn-orange:hover { background: var(--orange-dark); }
 .btn-blue { background: var(--blue); color: var(--white); }
-.btn-blue:hover { background: #318cb2; }
+.btn-blue:hover { background: #17668a; }
 .btn-sm { padding: 10px 20px; font-size: .95rem; }
 .btn-block { width: 100%; }
 
@@ -665,7 +665,7 @@ body.menu-open { overflow: hidden; }
 @media (min-width: 900px) { .founder { grid-template-columns: 360px 1fr; gap: 56px; } }
 .founder-card { background: var(--band); color: var(--white); border-radius: var(--radius-lg); padding: 36px 28px; text-align: center; display: grid; gap: 10px; justify-items: center; }
 .founder-avatar { object-fit: cover; border: 4px solid var(--orange); width: 140px; height: 140px; border-radius: 50%; background: var(--orange); color: var(--on-accent); font-weight: 800; font-size: 2.6rem; display: grid; place-items: center; margin-bottom: 6px; }
-.founder-card h2 { font-size: 1.7rem; }
+.founder-card h2 { font-size: 1.7rem; color: #fff; }
 .founder-role { color: #cfcfcf; }
 .founder-card .chip-row { margin-top: 8px; }
 .founder-card .chip-row li { background: rgba(255,255,255,.12); font-size: .85rem; padding: 8px 14px; }
@@ -862,4 +862,4 @@ body.menu-open .quick-bar { display: none; }
 /* ---------- Certification badges (section stays hidden until proof is on file) ---------- */
 .badge-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; }
 .badge-grid li a { display: grid; place-items: center; height: 110px; padding: 16px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; color: #000201; font-weight: 700; text-align: center; }
-.badge-grid img { max-height: 70px; width: auto; }
+.badge-grid img { max-height: 70px; max-width: 100%; width: auto; }
