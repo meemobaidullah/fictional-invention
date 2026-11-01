@@ -1,0 +1,5 @@
+# Hostinger (LiteSpeed/Apache): custom 404 and HTTPS
+ErrorDocument 404 /404.html
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
