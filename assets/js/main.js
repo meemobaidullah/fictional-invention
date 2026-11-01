@@ -228,6 +228,7 @@
       }).then(function (res) {
         if (!res.ok) throw new Error(res.status);
         setNote("Thanks! We've got your request and will reply by email soon.", 'is-success');
+        window.dispatchEvent(new CustomEvent('ecm:lead', { detail: { type: form.dataset.subject || 'form' } }));
         form.reset();
         show(0);
       }).catch(function () {
@@ -453,6 +454,7 @@
     }).then(function (res) {
       if (!res.ok) throw new Error(res.status);
       setNote("Order sent! Check your inbox for a copy. We'll reply within one business day.", 'is-success');
+      window.dispatchEvent(new CustomEvent('ecm:lead', { detail: { type: 'pricing_order', value: t.due } }));
       order = {}; save(); render(); form.reset();
     }).catch(function () {
       setNote('Sorry, that did not send. Use "Send Order on WhatsApp" or email ecommeem@gmail.com.', 'is-error');
@@ -554,7 +556,7 @@
       fetch('https://formsubmit.co/ajax/ecommeem@gmail.com', {
         method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({ _subject: 'Website chat lead', _template: 'table', email: email[0], _replyto: email[0], page: location.href, chat: transcript.join('\n') })
-      }).catch(function () {});
+      }).then(function () { window.dispatchEvent(new CustomEvent('ecm:lead', { detail: { type: 'chat' } })); }).catch(function () {});
       return { a: 'Thanks! We have your email (' + email[0].replace(/</g, '') + ') and the team will reply soon. For a faster answer, ' + link(WA + encodeURIComponent('Hi eCommeem, I just left my email in the website chat.'), 'message us on WhatsApp') + '.', q: [] };
     }
     var best = null, score = 0;
