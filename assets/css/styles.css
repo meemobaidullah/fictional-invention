@@ -863,3 +863,151 @@ body.menu-open .quick-bar { display: none; }
 .badge-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; }
 .badge-grid li a { display: grid; place-items: center; height: 110px; padding: 16px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; color: #000201; font-weight: 700; text-align: center; }
 .badge-grid img { max-height: 70px; max-width: 100%; width: auto; }
+
+/* =========================================================
+   Pricing page: service catalog + order cart
+   ========================================================= */
+.section-alt { background: var(--canvas); }
+.ask-link { text-align: center; color: var(--orange); font-weight: 600; font-size: .95rem; }
+.price .from { font-size: .85rem; font-weight: 600; color: var(--muted); margin-right: 2px; }
+.addon-card {
+  margin-top: 28px; display: grid; gap: 18px; align-items: center; background: var(--accent-soft);
+  border: 1px dashed var(--orange); border-radius: var(--radius-lg); padding: 24px 28px;
+}
+.addon-card h3 { margin: 4px 0 6px; }
+.addon-buy { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.addon-buy .price { font-size: 1.9rem; }
+@media (min-width: 800px) { .addon-card { grid-template-columns: 1fr auto; } }
+
+.price-tools { display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+.price-search { flex: 1 1 260px; max-width: 420px; }
+.price-search input {
+  width: 100%; padding: 12px 18px; border-radius: 999px; border: 1.5px solid var(--line);
+  background: var(--surface); color: var(--ink); font: inherit;
+}
+.price-search input:focus { border-color: var(--orange); outline: none; box-shadow: 0 0 0 3px rgba(14, 146, 122, .25); }
+.bill-toggle { display: flex; gap: 8px; }
+.bill-toggle .chip-btn { padding: 7px 14px; }
+
+.svc-grid { display: grid; gap: 20px; }
+@media (min-width: 700px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .svc-grid { grid-template-columns: repeat(3, 1fr); } }
+.svc-card {
+  position: relative; display: flex; flex-direction: column; gap: 8px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: var(--radius); padding: 22px;
+}
+.svc-card[hidden] { display: none; }
+.svc-card h3 { font-size: 1.1rem; margin: 0; color: var(--ink); }
+.svc-group { margin: 0; font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--orange); }
+.svc-desc { margin: 0; color: var(--muted); font-size: .95rem; flex: 1; }
+.svc-foot { display: flex; align-items: end; justify-content: space-between; gap: 12px; margin-top: 8px; }
+.svc-foot .price { font-size: 1.6rem; }
+.svc-setup { margin: 4px 0 0; font-size: .85rem; color: var(--muted); }
+.svc-pop {
+  position: absolute; top: 14px; right: 14px; background: var(--orange); color: var(--on-accent);
+  font-size: .72rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase;
+}
+.svc-empty { text-align: center; color: var(--muted); margin-top: 24px; }
+[data-add].is-added { background: var(--orange); color: var(--on-accent); border-color: var(--orange); }
+
+.checkout { display: grid; gap: 24px; align-items: start; }
+@media (min-width: 960px) { .checkout { grid-template-columns: 1.1fr 1fr; } }
+.cart-box, .cart-form {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px;
+  display: grid; gap: 14px; color: var(--text);
+}
+.cart-box h3, .cart-form h3 { margin: 0; color: var(--ink); }
+.cart-empty { color: var(--muted); margin: 0; }
+.cart-lines { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.cart-lines li {
+  display: grid; grid-template-columns: 1fr auto auto; gap: 10px; align-items: center;
+  padding: 12px 14px; border-radius: 14px; background: var(--canvas);
+}
+.cart-lines strong { display: block; color: var(--ink); font-size: .98rem; }
+.cart-lines small { color: var(--muted); }
+.cart-qty { width: 58px; padding: 6px 8px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; }
+.cart-rm { background: none; border: 0; color: var(--muted); font-size: 1.3rem; cursor: pointer; padding: 4px 8px; border-radius: 8px; }
+.cart-rm:hover { color: #d32f2f; }
+.cart-totals { margin: 0; display: grid; gap: 6px; border-top: 1px solid var(--border); padding-top: 14px; }
+.cart-totals div { display: flex; justify-content: space-between; }
+.cart-totals dt { color: var(--muted); }
+.cart-totals dd { margin: 0; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.cart-due dt, .cart-due dd { font-size: 1.2rem; color: var(--ink); font-weight: 800; }
+.cart-fine { font-size: .85rem; color: var(--muted); margin: 0; }
+.cart-form textarea {
+  padding: 12px 14px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--surface);
+  color: var(--ink); font: inherit; resize: vertical;
+}
+.cart-form textarea:focus { border-color: var(--orange); outline: none; box-shadow: 0 0 0 3px rgba(14, 146, 122, .25); }
+.field input[type=url], .field input[type=tel] { width: 100%; }
+
+.custom-plan {
+  display: grid; gap: 20px; align-items: center; background: var(--band); color: var(--white);
+  border-radius: var(--radius-lg); padding: 36px;
+}
+.custom-plan h2 { color: var(--white); margin: 0 0 8px; }
+.custom-plan p { margin: 0; color: #d6d6d6; }
+.custom-plan .btn-ghost { color: var(--white); border-color: #5a5a5a; }
+@media (min-width: 900px) { .custom-plan { grid-template-columns: 1.4fr auto; } }
+
+.cart-fab {
+  position: fixed; left: 16px; bottom: 16px; z-index: 60; background: var(--orange); color: var(--on-accent);
+  padding: 12px 18px; border-radius: 999px; font-weight: 600; text-decoration: none; box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+}
+.cart-fab[hidden] { display: none; }
+
+/* =========================================================
+   Chat assistant (every page)
+   ========================================================= */
+.chat-launch {
+  position: fixed; right: 16px; bottom: 16px; z-index: 70; width: 60px; height: 60px; border-radius: 50%;
+  border: 0; background: var(--orange); color: var(--on-accent); cursor: pointer;
+  display: grid; place-items: center; box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+}
+.chat-launch svg { width: 28px; height: 28px; }
+.chat-launch .chat-dot { position: absolute; top: 6px; right: 6px; width: 12px; height: 12px; border-radius: 50%; background: #25d366; border: 2px solid var(--surface); }
+.chat-panel {
+  position: fixed; right: 16px; bottom: 88px; z-index: 71; width: min(380px, calc(100vw - 32px));
+  height: min(560px, calc(100vh - 120px)); background: var(--surface); color: var(--text);
+  border: 1px solid var(--border); border-radius: 22px; box-shadow: 0 24px 60px rgba(0, 0, 0, .28);
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.chat-panel[hidden] { display: none; }
+.chat-head { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--band); color: var(--white); }
+.chat-head img { width: 38px; height: 38px; border-radius: 50%; background: var(--white); }
+.chat-head b { display: block; }
+.chat-head small { color: #b9e8de; }
+.chat-head button { margin-left: auto; background: none; border: 0; color: var(--white); font-size: 1.5rem; cursor: pointer; line-height: 1; }
+.chat-log { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; background: var(--canvas); }
+.chat-msg { max-width: 85%; padding: 10px 14px; border-radius: 16px; font-size: .95rem; line-height: 1.45; }
+.chat-msg.bot { align-self: flex-start; background: var(--surface); border: 1px solid var(--border); border-bottom-left-radius: 4px; }
+.chat-msg.me { align-self: flex-end; background: var(--orange); color: var(--on-accent); border-bottom-right-radius: 4px; }
+.chat-msg a { color: var(--orange); font-weight: 600; }
+.chat-msg.me a { color: inherit; }
+.chat-quick { display: flex; flex-wrap: wrap; gap: 6px; }
+.chat-quick button {
+  border: 1.5px solid var(--orange); background: var(--surface); color: var(--ink); border-radius: 999px;
+  padding: 6px 12px; font: inherit; font-size: .85rem; cursor: pointer;
+}
+.chat-quick button:hover { background: var(--accent-soft); }
+.chat-form { display: flex; gap: 8px; padding: 12px; border-top: 1px solid var(--border); background: var(--surface); }
+.chat-form input {
+  flex: 1; padding: 10px 14px; border-radius: 999px; border: 1.5px solid var(--line);
+  background: var(--surface); color: var(--ink); font: inherit; min-width: 0;
+}
+.chat-form button { border: 0; background: var(--orange); color: var(--on-accent); border-radius: 999px; padding: 0 16px; font-weight: 700; cursor: pointer; }
+.chat-typing { align-self: flex-start; color: var(--muted); font-size: .85rem; }
+@media print { .chat-launch, .chat-panel, .cart-fab { display: none !important; } }
+/* Stack floating buttons above the mobile quick bar and the desktop WhatsApp pill */
+.chat-launch { bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
+.chat-panel { bottom: calc(156px + env(safe-area-inset-bottom, 0px)); height: min(540px, calc(100vh - 230px)); }
+.cart-fab { bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
+@media (min-width: 900px) {
+  .chat-launch { right: 22px; bottom: 90px; }
+  .chat-panel { right: 22px; bottom: 162px; height: min(560px, calc(100vh - 200px)); }
+  .cart-fab { left: 22px; bottom: 22px; }
+}
+/* Small accent text needs the darker (light) / brighter (dark) emerald to pass WCAG AA */
+.ask-link, .svc-group, .chat-msg.bot a, .svc-card .btn-outline, .addon-card .btn-outline, .price-card .btn-outline { color: var(--orange-dark); }
+.svc-card .btn-outline:hover, .addon-card .btn-outline:hover, .price-card .btn-outline:hover { color: var(--on-accent); }
+[data-add].is-added { color: var(--on-accent) !important; }
