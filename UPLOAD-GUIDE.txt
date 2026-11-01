@@ -33,3 +33,4 @@ eCommeem.com - Hostinger upload guide
    - Send a pricing order and a contact form: both must reach ecommeem@gmail.com.
    - Tap WhatsApp buttons: they open chat with +880 1731-558195.
    - Visit https://www.ecommeem.com/abc : the custom 404 page should show.
+   - Visit https://www.ecommeem.com/pricing.html : it should jump to /pricing (clean URL).

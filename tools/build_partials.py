@@ -14,8 +14,8 @@ THEME_INIT = (
     "  <script data-theme-init>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');"
     "document.documentElement.dataset.theme=t}catch(e){}</script>\n"
 )
-STYLESHEET = '  <link rel="stylesheet" href="assets/css/styles.css">'
-ANALYTICS = '  <script src="assets/js/analytics.js" async></script>\n'
+STYLESHEET = '  <link rel="stylesheet" href="/assets/css/styles.css">'
+ANALYTICS = '  <script src="/assets/js/analytics.js" async></script>\n'
 
 for page in sorted(ROOT.glob("*.html")):
     html = page.read_text(encoding="utf-8")
@@ -25,7 +25,7 @@ for page in sorted(ROOT.glob("*.html")):
         html = pattern.sub(lambda _: f"<!-- {name}:start -->\n{body}\n  <!-- {name}:end -->", html)
     if "data-theme-init" not in html and STYLESHEET in html:
         html = html.replace(STYLESHEET, THEME_INIT + STYLESHEET, 1)
-    if "assets/js/analytics.js" not in html and STYLESHEET in html:
+    if "/assets/js/analytics.js" not in html and STYLESHEET in html:
         html = html.replace(STYLESHEET, ANALYTICS + STYLESHEET, 1)
     page.write_text(html, encoding="utf-8")
     print("updated", page.name)
