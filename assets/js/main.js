@@ -506,9 +506,9 @@
       a: 'Walmart Marketplace account management is <b>$1,200/month + $1,200 setup</b>, covering catalog, WFS and Sponsored Products. See ' + link('/walmart-marketplace-management', 'Walmart management') + '.',
       q: ['Pricing', 'Talk to a human'] },
     { k: ['tiktok'], a: 'Yes, we set up and manage TikTok Shop: catalog, affiliates and ads. See ' + link('/tiktok-shop-management', 'TikTok Shop management') + '.', q: ['Pricing', 'Talk to a human'] },
-    { k: ['temu'], a: 'We help sellers launch and grow on Temu. See ' + link('/temu-seller-management', 'Temu seller management') + '.', q: ['Pricing', 'Talk to a human'] },
+    { k: ['temu'], a: 'We help sellers launch and grow on Temu. See ' + link('/temu-store-management', 'Temu seller management') + '.', q: ['Pricing', 'Talk to a human'] },
     { k: ['ebay'], a: 'We manage eBay stores end to end. See ' + link('/ebay-store-management', 'eBay store management') + '.', q: ['Pricing'] },
-    { k: ['etsy'], a: 'We run Etsy shops: listings, SEO and ads. See ' + link('/etsy-store-management', 'Etsy store management') + '.', q: ['Pricing'] },
+    { k: ['etsy'], a: 'We run Etsy shops: listings, SEO and ads. See ' + link('/etsy-shop-management', 'Etsy store management') + '.', q: ['Pricing'] },
     { k: ['mercari'], a: 'We handle Mercari setup, listings and smart pricing. See ' + link('/mercari-seller-management', 'Mercari seller management') + '.', q: ['Talk to a human'] },
     { k: ['shopify', 'woocommerce', 'ecommerce store'], a: 'A full ecommerce store build starts at <b>$2,499 one-time</b>. See ' + link('/shopify-store-management', 'Shopify management') + '.', q: ['Website', 'Pricing'] },
     { k: ['website', 'web site', 'web dev', 'landing'], a: 'Website development starts at <b>$799 one-time</b>; SEO is $499/month. See ' + link('/website-development', 'website development') + '.', q: ['App', 'Pricing'] },
@@ -598,4 +598,37 @@
     input.value = '';
     ask(v);
   });
+})();
+
+/* Resource library on /blog: search, category filter and "load more". */
+(function () {
+  var cards = Array.prototype.slice.call(document.querySelectorAll('[data-resource-card]'));
+  if (!cards.length) return;
+  var query = document.getElementById('resource-query');
+  var filters = Array.prototype.slice.call(document.querySelectorAll('.resource-filter'));
+  var more = document.getElementById('resource-more');
+  var count = document.querySelector('.resource-count');
+  var empty = document.querySelector('.resource-empty');
+  var active = 'all', limit = 12;
+  function render() {
+    var q = (query && query.value || '').trim().toLowerCase();
+    var matched = cards.filter(function (c) {
+      return (active === 'all' || c.dataset.category === active) && c.textContent.toLowerCase().indexOf(q) !== -1;
+    });
+    cards.forEach(function (c) { c.hidden = true; });
+    matched.slice(0, limit).forEach(function (c) { c.hidden = false; });
+    if (count) count.textContent = matched.length + ' helpful guide' + (matched.length === 1 ? '' : 's') + ' found';
+    if (more) more.hidden = matched.length <= limit;
+    if (empty) empty.hidden = matched.length !== 0;
+  }
+  filters.forEach(function (b) {
+    b.addEventListener('click', function () {
+      active = b.dataset.filter; limit = 12;
+      filters.forEach(function (x) { x.classList.toggle('active', x === b); x.setAttribute('aria-pressed', x === b); });
+      render();
+    });
+  });
+  if (query) query.addEventListener('input', function () { limit = 12; render(); });
+  if (more) more.addEventListener('click', function () { limit += 12; render(); });
+  render();
 })();

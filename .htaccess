@@ -1,18 +1,27 @@
-# Hostinger (LiteSpeed/Apache): custom 404, HTTPS + www, compression and browser caching
+# Hostinger (LiteSpeed/Apache): custom 404, HTTPS without www, clean URLs, compression and caching
 ErrorDocument 404 /404.html
 Options -Indexes
 
 RewriteEngine On
-# One address for Google: https://www.ecommeem.com (matches canonical tags and sitemap)
+# One address for Google: https://ecommeem.com (same as the old site, so existing rankings carry over)
 RewriteCond %{HTTPS} !=on [OR]
-RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
-RewriteRule ^ https://www.%1%{REQUEST_URI} [L,R=301]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+# Old sitemap index files point to the single sitemap
+RewriteRule ^sitemap-(services|resources|locations)\.xml$ /sitemap.xml [R=301,L]
+
+# New page names that now live at the older, ranked URLs
+RewriteRule ^etsy-store-management/?$ /etsy-shop-management [R=301,L]
+RewriteRule ^temu-seller-management/?$ /temu-store-management [R=301,L]
+RewriteRule ^privacy-policy/?$ /privacy [R=301,L]
 
 # Clean URLs: /pricing serves pricing.html; old .html links 301 to the clean address
 RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
 RewriteRule ^index\.html$ / [R=301,L]
 RewriteCond %{THE_REQUEST} \s/+([^\s?]+?)\.html[\s?] [NC]
+RewriteCond %{REQUEST_URI} !^/google[0-9a-f]+\.html$ [NC]
 RewriteRule ^ /%1 [R=301,L]
 # Trailing slash on a page: /pricing/ -> /pricing
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -37,6 +46,7 @@ RewriteRule ^(partials|tools)/ - [F,L]
   ExpiresByType image/svg+xml "access plus 30 days"
   ExpiresByType image/png "access plus 30 days"
   ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/webp "access plus 1 year"
   ExpiresByType image/x-icon "access plus 30 days"
 </IfModule>
 
