@@ -273,3 +273,17 @@
     });
   });
 })();
+
+/* Mega menu: hovering or focusing a platform shows its two service columns. */
+(function () {
+  var tabs = document.querySelectorAll('[data-mega]');
+  if (!tabs.length) return;
+  function show(key) {
+    tabs.forEach(function (t) { t.classList.toggle('is-active', t.dataset.mega === key); });
+    document.querySelectorAll('[data-mega-pane]').forEach(function (p) { p.hidden = p.dataset.megaPane !== key; });
+  }
+  tabs.forEach(function (t) {
+    t.addEventListener('mouseenter', function () { show(t.dataset.mega); });
+    t.addEventListener('focus', function () { show(t.dataset.mega); });
+  });
+})();
