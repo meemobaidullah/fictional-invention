@@ -796,3 +796,13 @@ body.menu-open .quick-bar { display: none; }
 .chip-btn { padding: 9px 18px; border-radius: 999px; border: 2px solid var(--line); background: var(--surface); color: var(--ink); font-weight: 600; cursor: pointer; }
 .chip-btn:hover { border-color: var(--orange); }
 .chip-btn.is-active { background: var(--orange); border-color: var(--orange); color: var(--on-accent); }
+
+/* ---------- Social + marketplace icons (Simple Icons, CC0) ---------- */
+.site-footer .social { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.social a { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.1); color: #fff; transition: background .2s; }
+.social a:hover { background: var(--orange); }
+.social svg { width: 18px; height: 18px; fill: currentColor; }
+.social svg[fill="none"] { fill: none; }
+.chip-icons li { display: inline-flex; align-items: center; gap: 8px; }
+.chip-icons svg { width: 18px; height: 18px; fill: currentColor; flex: none; }
+.chip-icons svg[fill="none"] { fill: none; }
