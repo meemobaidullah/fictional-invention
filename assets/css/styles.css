@@ -716,3 +716,62 @@ body.menu-open { overflow: hidden; }
 :root[data-theme="dark"] .form-note.is-success { color: #66bb6a; }
 :root[data-theme="dark"] .audience-tag { color: #6cc3e6; }
 :root[data-theme="dark"] .line-icon { stroke: var(--orange); }
+
+/* ---------- Always-visible contact ---------- */
+.float-mail { display: none; }   /* replaced by the WhatsApp bubble and the phone action bar */
+.topbar { display: none; background: var(--band); color: #cfcfcf; font-size: .88rem; }
+@media (min-width: 1100px) { .topbar { display: block; } }
+.topbar-inner { display: flex; justify-content: space-between; align-items: center; min-height: 38px; gap: 16px; }
+.topbar ul { display: flex; gap: 22px; }
+.topbar a { color: #e9e9e9; text-decoration: none; }
+.topbar a:hover { color: var(--orange); }
+.topbar .topbar-cta { color: var(--orange); font-weight: 700; }
+
+.wa-float {
+  position: fixed; right: 22px; bottom: 22px; z-index: 60; display: none; align-items: center; gap: 10px;
+  padding: 12px 18px 12px 14px; border-radius: 999px; background: #25d366; color: #052e16; font-weight: 700; text-decoration: none;
+  box-shadow: 0 12px 30px rgba(37, 211, 102, .35); transition: transform .2s;
+}
+.wa-float:hover { transform: translateY(-3px); }
+.wa-float svg, .quick-bar svg, .reach svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; flex: none; }
+@media (min-width: 900px) { .wa-float { display: inline-flex; } }
+
+.quick-bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1fr 1fr 1.3fr;
+  background: var(--band); padding: 8px 8px calc(8px + env(safe-area-inset-bottom, 0px)); gap: 6px; box-shadow: 0 -8px 24px rgba(0, 0, 0, .18);
+}
+.quick-bar a { display: grid; justify-items: center; gap: 2px; color: #f1f1f1; text-decoration: none; font-size: .75rem; font-weight: 600; padding: 6px 0; border-radius: 10px; }
+.quick-bar .qb-wa { color: #25d366; }
+.quick-bar .qb-cta { background: var(--orange); color: var(--on-accent); align-content: center; font-size: .9rem; font-weight: 800; }
+body { padding-bottom: 72px; }
+@media (min-width: 900px) { .quick-bar { display: none; } body { padding-bottom: 0; } }
+body.menu-open .quick-bar { display: none; }
+
+/* ---------- Contact page ---------- */
+.contact-hero .hero-lead { margin-top: 18px; }
+.reach-grid { display: grid; gap: 18px; margin-top: 32px; }
+@media (min-width: 900px) { .reach-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
+.reach { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; display: grid; gap: 10px; justify-items: start; align-content: start; }
+.reach > svg { width: 40px; height: 40px; color: var(--orange); }
+.reach-wa > svg { color: #25d366; }
+.reach h2 { font-size: 1.4rem; }
+.reach p { color: var(--muted); }
+.reach small, .reach-alt { color: var(--muted); font-size: .92rem; }
+.reach-alt { text-decoration: none; }
+.reach .btn { margin-top: 6px; }
+.btn-wa { background: #25d366; color: #052e16; }
+.btn-wa:hover { background: #1fb457; }
+.next-steps { display: grid; gap: 18px; counter-reset: none; }
+@media (min-width: 900px) { .next-steps { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
+.next-steps li { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px; display: grid; gap: 8px; }
+.next-steps b { color: var(--orange); font-size: 1.6rem; font-weight: 800; }
+.next-steps strong { color: var(--ink); font-size: 1.15rem; }
+.next-steps span { color: var(--muted); }
+
+/* ---------- Promise strip (service pages) ---------- */
+.promise-grid { display: grid; gap: 16px; }
+@media (min-width: 640px) { .promise-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1100px) { .promise-grid { grid-template-columns: repeat(4, 1fr); } }
+.promise-grid li { border-left: 4px solid var(--orange); background: var(--surface); border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 22px; display: grid; gap: 6px; }
+.promise-grid strong { color: var(--ink); font-size: 1.08rem; }
+.promise-grid span { color: var(--muted); font-size: .98rem; }

@@ -22,9 +22,8 @@ assets/img/           Favicon and images
 
 Values highlighted in orange on the page (class `ph`) and `PLACEHOLDER` / `TODO` comments in the code still need real data:
 
-- **Domain**: canonical, Open Graph and JSON-LD URLs assume `https://www.ecommeem.com/`.
+- **Domain**: canonical, Open Graph, sitemap and JSON-LD URLs assume `https://www.ecommeem.com/`.
 - **Contact**: ecommeem@gmail.com, +880 1731-558195 and +880 1309-012476 live in `partials/header.html`, `partials/footer.html` and the Organization JSON-LD.
-- **Social image & icons**: add `assets/img/og-image.png` (1200×630), `assets/img/logo.svg`, `assets/img/apple-touch-icon.png` (180×180) and a root `favicon.ico`.
 - **Twitter/X handle**: `twitter:site` assumes `@ecommeem`.
 - **Partner badges & accreditations**: hero "Platforms we manage" row, the homepage Recognitions section and the Programs & Certifications chips on `about.html`. Swap the text chips for the official badge files.
 - **Client logos**: the 10 logo tiles under the hero (real clients only, with their permission).
@@ -46,6 +45,9 @@ Values highlighted in orange on the page (class `ph`) and `PLACEHOLDER` / `TODO`
 - `amazon-brand-storefront-design.html`: Storefront design service page
 - `free-amazon-audit.html`: free store audit page
 - `about.html`: about eCommeem and founder Meem Obaidullah
+- `contact.html`: WhatsApp, call and email cards plus the contact form
+- `amazon-account-management.html`, `amazon-ppc-management.html`, `amazon-listing-optimization.html`, `amazon-account-reinstatement.html`, `marketplace-management-services.html`: service pages
+- `sitemap.xml`, `robots.txt`: submit the sitemap in Google Search Console after launch
 - `partials/header.html`, `partials/footer.html`: the shared menu and footer. Edit them there, then run `python3 tools/build_partials.py` to copy them into every page.
 
 ## Logo files

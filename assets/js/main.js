@@ -215,6 +215,9 @@
         if (form.elements[k]) data[k] = form.elements[k].value.trim();
       });
       data._replyto = data.email;
+      // Instant confirmation to the visitor, so nobody is left wondering if the message arrived.
+      data._autoresponse = "Thanks for contacting eCommeem! We've received your request and a team member will reply soon. " +
+        'For a faster answer, WhatsApp us at +880 1731-558195 (https://wa.me/8801731558195).';
 
       submit.disabled = true;
       setNote('Sending…');
