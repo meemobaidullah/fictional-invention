@@ -1017,3 +1017,5 @@ body.menu-open .quick-bar { display: none; }
   .hdr-quick a:not(.btn) { color: var(--ink); font-weight: 600; text-decoration: none; }
   .hdr-quick a:not(.btn):hover { color: var(--orange-dark); }
 }
+.founder-site a { color: #7fe3cf; font-weight: 600; text-decoration: none; }
+.founder-site a:hover { text-decoration: underline; }
