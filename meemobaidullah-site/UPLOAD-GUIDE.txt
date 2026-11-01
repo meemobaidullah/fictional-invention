@@ -1,0 +1,36 @@
+meemobaidullah.com — Hostinger upload guide (new design)
+=========================================================
+
+What is in the zip
+  The "public" folder content: 54 pages, each at the SAME URL as the live site
+  (for example about/index.html serves https://meemobaidullah.com/about/),
+  sitemap.xml with the same 55 URLs, and the new design files in assets/v2/.
+
+Before you upload
+  1. Hostinger hPanel > Files > File Manager > public_html.
+  2. Select everything, Compress, save as backup-before-redesign.zip and download it.
+     If anything looks wrong you can restore this in one click.
+
+Upload
+  3. Upload meemobaidullah-site-upload.zip into public_html and Extract it there.
+     Choose "overwrite" when asked.
+  4. DO NOT delete any existing file or folder. The new pages still use these old files:
+       assets/images/meemobaidullah.webp            (social share image)
+       assets/images/about/about-left-image.png     (About share image)
+       assets/store/*.jpeg                          (Selected Work screenshots)
+     And this page is NOT in the zip, so the live version stays as it is:
+       blog/amazon-fba-complete-guide/
+     Keep your existing .htaccess and robots.txt (the zip does not replace them).
+
+After upload (5 minutes)
+  5. Open these in a private window and check they load in the new design:
+       /  /about/  /contact/  /fba-automation/  /blog/  /case-stady/  /sucess/
+     If any shows the OLD design, the old site was serving that page from a
+     different file (for example about.html). Send me a screenshot of the
+     public_html file list and I will match it.
+  6. Press the moon/sun button at the top: the whole site switches dark/light.
+  7. Google Search Console > Sitemaps > resubmit https://meemobaidullah.com/sitemap.xml
+     Then URL Inspection > Request indexing for the home page.
+
+Nothing about URLs, titles, meta descriptions, canonical tags or noindex tags
+has changed, so rankings carry over.
