@@ -259,3 +259,17 @@
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 })();
+
+/* Testimonials filter: show only reviews for the chosen service. */
+(function () {
+  var grid = document.querySelector('[data-tgrid]');
+  if (!grid) return;
+  var btns = document.querySelectorAll('[data-filter]');
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = b.getAttribute('data-filter');
+      btns.forEach(function (x) { x.classList.toggle('is-active', x === b); x.setAttribute('aria-pressed', x === b); });
+      grid.querySelectorAll('.t-card').forEach(function (c) { c.hidden = f !== 'all' && c.dataset.cat !== f; });
+    });
+  });
+})();

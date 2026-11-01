@@ -775,3 +775,24 @@ body.menu-open .quick-bar { display: none; }
 .promise-grid li { border-left: 4px solid var(--orange); background: var(--surface); border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 22px; display: grid; gap: 6px; }
 .promise-grid strong { color: var(--ink); font-size: 1.08rem; }
 .promise-grid span { color: var(--muted); font-size: .98rem; }
+
+/* ---------- Testimonials ---------- */
+.section-sub { color: var(--muted); margin: -24px 0 36px; max-width: 40em; }
+.hero-short { padding-bottom: 32px; }
+.hero-short .hero-lead { max-width: 44em; }
+.t-grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .t-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .t-grid { grid-template-columns: repeat(3, 1fr); } }
+.t-card { margin: 0; display: flex; flex-direction: column; gap: 16px; padding: 26px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); }
+.t-card[hidden] { display: none; }
+.t-tag { align-self: flex-start; font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--orange-dark); background: var(--accent-soft); padding: 4px 10px; border-radius: 999px; }
+.t-card blockquote { margin: 0; flex: 1; color: var(--text); font-size: 1.02rem; line-height: 1.6; }
+.t-card figcaption { display: flex; align-items: center; gap: 12px; }
+.t-card figcaption strong { display: block; color: var(--ink); }
+.t-card figcaption small { color: var(--muted); font-size: .9rem; }
+.t-avatar { flex: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--orange); color: var(--on-accent); font-weight: 800; }
+.t-more { text-align: center; margin-top: 32px; }
+.t-filters { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 28px; }
+.chip-btn { padding: 9px 18px; border-radius: 999px; border: 2px solid var(--line); background: var(--surface); color: var(--ink); font-weight: 600; cursor: pointer; }
+.chip-btn:hover { border-color: var(--orange); }
+.chip-btn.is-active { background: var(--orange); border-color: var(--orange); color: var(--on-accent); }
